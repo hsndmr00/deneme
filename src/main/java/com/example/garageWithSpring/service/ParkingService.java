@@ -1,5 +1,10 @@
 package com.example.garageWithSpring.service;
 
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
 import com.example.garageWithSpring.model.Slot;
 import com.example.garageWithSpring.model.Vehicle;
 import com.example.garageWithSpring.model.VehicleType;
@@ -7,11 +12,6 @@ import com.example.garageWithSpring.type.ErrorMessage;
 import com.example.garageWithSpring.type.ResponseBodyMessage;
 import com.example.garageWithSpring.type.UpdateVehicleInput;
 import com.example.garageWithSpring.utlis.Utils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ParkingService {
@@ -19,8 +19,8 @@ public class ParkingService {
     private final VehicleService vehicleService;
     private final SlotService slotService;
 
-    @Autowired
-    public ParkingService(VehicleTypeService vehicleTypeService, VehicleService vehicleService, SlotService slotService) {
+    public ParkingService(VehicleTypeService vehicleTypeService, VehicleService vehicleService,
+            SlotService slotService) {
         this.vehicleTypeService = vehicleTypeService;
         this.vehicleService = vehicleService;
         this.slotService = slotService;
@@ -29,7 +29,8 @@ public class ParkingService {
     public ResponseBodyMessage parkVehicle(Vehicle vehicle) throws ErrorMessage {
         Vehicle hasPlateCode = vehicleService.findById(vehicle.getPlateCode());
         if (hasPlateCode != null) {
-            throw new ErrorMessage("The car is already parked. Call updateVehicle method to update", HttpStatus.BAD_REQUEST.value());
+            throw new ErrorMessage("The car is already parked. Call updateVehicle method to update",
+                    HttpStatus.BAD_REQUEST.value());
         }
 
         VehicleType vehicleType = vehicleTypeService.findById(vehicle.getType());
@@ -46,7 +47,6 @@ public class ParkingService {
 
         vehicleService.save(newVehicle);
         slotService.saveAll(newSlots);
-
 
         return new ResponseBodyMessage("Vehicle parked successfully");
     }
