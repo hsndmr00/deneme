@@ -1,13 +1,12 @@
 package com.example.garageWithSpring.service;
 
-import com.example.garageWithSpring.type.ErrorMessage;
-import com.example.garageWithSpring.type.GetStatusOutputModel;
-import org.springframework.beans.factory.annotation.Value;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+
+import com.example.garageWithSpring.type.ErrorMessage;
+import com.example.garageWithSpring.type.GetStatusOutputModel;
 
 public class FileService {
     private StringBuilder fileToString(List<GetStatusOutputModel> content) {
@@ -27,7 +26,7 @@ public class FileService {
             result.append("   \"vehicleType \": \"").append(getStatusOutputModel.getVehicleType()).append("\",");
             result.append("\n");
             result.append("   \"slots \": [");
-            for (String slot: getStatusOutputModel.getSlots()) {
+            for (String slot : getStatusOutputModel.getSlots()) {
                 result.append("\"").append(slot).append("\"").append(",");
             }
             result.deleteCharAt(result.length() - 1);

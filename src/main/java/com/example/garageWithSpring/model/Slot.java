@@ -1,7 +1,6 @@
 package com.example.garageWithSpring.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -16,9 +15,11 @@ public class Slot {
     @JsonBackReference
     private Vehicle vehicle;
 
-    public Slot(){}
+    public Slot() {
+    }
 
-    public Slot(String slotNo, String ticketNo) {}
+    public Slot(String slotNo, String ticketNo) {
+    }
 
     public String getSlotNo() {
         return slotNo;

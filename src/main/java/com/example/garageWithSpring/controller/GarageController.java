@@ -63,7 +63,7 @@ public class GarageController {
             List<VehicleType> vehicleTypes = vehicleTypeService.findAll();
             List<GetStatusOutputModel> getStatusOutputModels = getStatusService.getVehiclesStatus(vehicles, vehicleTypes);
             FileService fileService = new FileService();
-            fileService.writeToFile("./src/main/resources/files/status.txt", getStatusOutputModels);
+            fileService.writeToFile("./src/main/resources/files/status.json", getStatusOutputModels);
             return ResponseEntity.ok(getStatusOutputModels);
         } catch (ErrorMessage error) {
             return ResponseEntity.status(error.getStatusCode()).body(new ResponseBodyMessage(error.getMessage()));

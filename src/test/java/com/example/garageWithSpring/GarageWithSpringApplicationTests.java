@@ -3,7 +3,7 @@ package com.example.garageWithSpring;
 import com.example.garageWithSpring.model.Vehicle;
 import com.example.garageWithSpring.service.ParkingService;
 import com.example.garageWithSpring.type.ErrorMessage;
-import com.example.garageWithSpring.type.ResponseBodyMessage;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
