@@ -1,0 +1,9 @@
+[
+  {
+   "color ": "Blue",
+   "ticketNo ": "1",
+   "plateCode ": "02-A-12",
+   "vehicleType ": "MOTOR",
+   "slots ": ["1"]
+  }
+]
