@@ -15,7 +15,7 @@ import java.util.List;
 // vehicle için put
 // slot için put
 // getStatus'de ticketNo ve vehicleType ekle TAMAMLANDI
-// getStatus service'in sonucunu dosyaya yaz TAMAMLANDI
+// getStatus service'in sonucunu dosyaya yaz TAMAMLANDIa
 
 @RestController
 @RequestMapping("api/vehicleType")
